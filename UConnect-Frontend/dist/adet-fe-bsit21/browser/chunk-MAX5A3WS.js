@@ -1,0 +1,1 @@
+import{a as n}from"./chunk-NYTSZ4X2.js";import{Jb as e,M as i,R as a,p as r}from"./chunk-6KG6VDZE.js";var p=class t{http=a(e);apiBaseUrl=n.apiBaseUrl;getLocations(o=""){return r(this.http.get(`${this.apiBaseUrl}/locations`,{params:{search:o}}))}static \u0275fac=function(c){return new(c||t)};static \u0275prov=i({token:t,factory:t.\u0275fac,providedIn:"root"})};export{p as a};

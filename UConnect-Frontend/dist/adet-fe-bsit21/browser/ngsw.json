@@ -1,0 +1,108 @@
+{
+  "configVersion": 1,
+  "timestamp": 1776316193161,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/chunk-6KG6VDZE.js",
+        "/chunk-AVC7Z65U.js",
+        "/chunk-EFE42VJU.js",
+        "/chunk-MAX5A3WS.js",
+        "/chunk-NYTSZ4X2.js",
+        "/chunk-RI2QJXNQ.js",
+        "/chunk-SWVY6P3T.js",
+        "/chunk-X7G5TVTD.js",
+        "/env.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main-G2VIUMLJ.js",
+        "/manifest.webmanifest",
+        "/styles-TV7QIMH6.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/brand/liceo-logo.png",
+        "/icons/icon-192.svg",
+        "/icons/icon-512.svg",
+        "/media/bootstrap-icons-CVBWLLHT.woff2",
+        "/media/layers-2x-TBM42ERR.png",
+        "/media/layers-55W3Q4RM.png",
+        "/media/marker-icon-2V3QKKVC.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-fresh",
+      "patterns": [
+        "http:\\/\\/localhost:3000\\/api\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 50,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/brand/liceo-logo.png": "a32f0d8ed74325a7e2c593cda635ac34d0e2c380",
+    "/chunk-6KG6VDZE.js": "2eb1819d88b24569b2c6089693318733e7b06459",
+    "/chunk-AVC7Z65U.js": "663503d3853aeabcaf26987962b73259f88e24d5",
+    "/chunk-EFE42VJU.js": "f8f5df6e04097464e76ef80549ffe1703c232bbb",
+    "/chunk-MAX5A3WS.js": "00f8bed161a35d6d6e835a70a8de37e5af942161",
+    "/chunk-NYTSZ4X2.js": "ef56f953ddf98ee4ff6400686a9fd9ff20c6926f",
+    "/chunk-RI2QJXNQ.js": "3cfed0fbb848138c80d83ee4b9c5854181229b25",
+    "/chunk-SWVY6P3T.js": "192d3baf36c770c06d7317329bbd715a1709305d",
+    "/chunk-X7G5TVTD.js": "611437a34f96575405586cef6ccfeedb8fc21ff0",
+    "/env.js": "d612d7d93a5df124dd3bf1f170cc5080d274a3d0",
+    "/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/icons/icon-192.svg": "a98312b95c3f126e2c99e135b91836a52d65d936",
+    "/icons/icon-512.svg": "07b09d805f66e62acd703a1937fb8c8d8b166156",
+    "/index.html": "16fec1aa0fb71195dc88de3f66b32b3842cadbb3",
+    "/main-G2VIUMLJ.js": "72c0d8febd567791a49d653afc83103dd95ddddf",
+    "/manifest.webmanifest": "4996e4ca589716d84841234fb72b2b30f0d5707f",
+    "/media/bootstrap-icons-CVBWLLHT.woff2": "b441fcff939e24fa0906a37b7788788b9fddbb68",
+    "/media/layers-2x-TBM42ERR.png": "152a162333e46d24f9d89f566312fc0c64011dee",
+    "/media/layers-55W3Q4RM.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
+    "/media/marker-icon-2V3QKKVC.png": "60a90bcbb2b42b7ddb4556db94eb7c1084b0e5da",
+    "/styles-TV7QIMH6.css": "a4e311c17dff1337586dd499664530da3156ff0e"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

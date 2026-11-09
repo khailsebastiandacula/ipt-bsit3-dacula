@@ -1,0 +1,146 @@
+<section class="card intro-card">
+  <div class="section-kicker"><i class="bi bi-shield-lock"></i> Administration</div>
+  <h2>Announcement Management</h2>
+  <p>Create, edit, and manage campus-wide announcements.</p>
+</section>
+
+<section class="card admin-key-card">
+  <label for="admin-key">Admin Key</label>
+  <input
+    id="admin-key"
+    type="password"
+    [value]="adminKey()"
+    (input)="saveAdminKey($any($event.target).value)"
+    placeholder="Enter admin key"
+    [class.key-valid]="adminKeyStatus() === 'valid'"
+    [class.key-invalid]="adminKeyStatus() === 'invalid'"
+  />
+  <small
+    class="key-status"
+    [class.valid]="adminKeyStatus() === 'valid'"
+    [class.invalid]="adminKeyStatus() === 'invalid'"
+    [class.checking]="adminKeyStatus() === 'checking'"
+  >
+    {{ adminKeyStatusText() }}
+  </small>
+  <div class="admin-key-actions">
+    <button class="btn btn-brand" type="button" (click)="submitAdminKey()">
+      <span class="btn-icon" aria-hidden="true"><i class="bi bi-unlock"></i></span>
+      Submit Key
+    </button>
+  </div>
+</section>
+
+@if (errorMessage()) {
+  <div class="error-banner" role="alert">
+    <i class="bi bi-exclamation-circle"></i>
+    <span>{{ errorMessage() }}</span>
+  </div>
+}
+
+@if (adminKeyStatus() === 'valid') {
+  <section class="create-bar">
+    <button class="btn btn-brand" type="button" (click)="toggleForm()">
+      <span class="btn-icon" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+      {{ isFormExpanded() ? 'Close New Announcement' : 'Add New Announcement' }}
+    </button>
+  </section>
+
+  @if (isFormExpanded()) {
+    <section class="card form-card form-card-open">
+      <h3>{{ editingId() ? 'Edit Announcement' : 'New Announcement' }}</h3>
+
+      <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <label>Title</label>
+        <input type="text" formControlName="title" placeholder="Enter announcement title" />
+
+        <label>Message</label>
+        <textarea
+          rows="4"
+          formControlName="message"
+          placeholder="Enter announcement details"
+        ></textarea>
+
+        <label>Priority</label>
+        <select formControlName="priority">
+          <option value="LOW">LOW</option>
+          <option value="NORMAL">NORMAL</option>
+          <option value="HIGH">HIGH</option>
+          <option value="URGENT">URGENT</option>
+        </select>
+
+        <label>Author Name</label>
+        <input type="text" formControlName="author_name" placeholder="Your name or department" />
+
+        <label class="switch">
+          <input type="checkbox" formControlName="is_active" />
+          <span>Active announcement</span>
+        </label>
+
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">
+            <span class="btn-icon" aria-hidden="true"><i class="bi bi-floppy"></i></span>
+            {{ editingId() ? 'Update' : 'Create' }}
+          </button>
+          <button class="btn" type="button" (click)="cancelEdit()">
+            <span class="btn-icon" aria-hidden="true"><i class="bi bi-x-lg"></i></span>
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      @if (errorMessage()) {
+        <p class="error">{{ errorMessage() }}</p>
+      }
+    </section>
+  }
+
+  <section class="list-block">
+    <h3>Current Announcements ({{ announcements().length }})</h3>
+
+    @if (loading()) {
+      <article class="card loading-card" aria-label="Loading announcements">
+        <div class="skeleton-line w-45"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-line w-72"></div>
+      </article>
+    } @else {
+      <div class="announcement-list">
+        @for (item of announcements(); track item.id) {
+          <article class="card list-item">
+            <div class="row-top">
+              <h4>{{ item.title }}</h4>
+              <span class="priority" [class]="'priority-' + item.priority.toLowerCase()">{{
+                item.priority
+              }}</span>
+            </div>
+            <div class="message-row">
+              <p>{{ item.message }}</p>
+              <div class="actions inline">
+                <button
+                  class="btn btn-link icon-only"
+                  type="button"
+                  (click)="startEdit(item)"
+                  aria-label="Edit announcement"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button
+                  class="btn btn-link danger icon-only"
+                  type="button"
+                  (click)="deleteItem(item)"
+                  aria-label="Delete announcement"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+            <small>{{ item.created_at | date: 'MMMM d, y' }} by {{ item.author_name }}</small>
+          </article>
+        } @empty {
+          <article class="card"><p class="empty-state">No announcements found yet.</p></article>
+        }
+      </div>
+    }
+  </section>
+}

@@ -1,0 +1,38 @@
+<div class="app-shell">
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div class="brand-block" aria-label="Liceo U Connect">
+        <img
+          class="brand-logo"
+          src="/brand/liceo-logo.png"
+          alt="Liceo de Cagayan University logo"
+        />
+        <div>
+          <h1>Liceo U Connect</h1>
+          <p>Liceo de Cagayan University</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <router-outlet />
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary navigation">
+    <div class="bottom-nav-inner">
+      <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+        <span class="icon" aria-hidden="true"><i class="bi bi-house-door"></i></span>
+        <span class="label">Home</span>
+      </a>
+      <a routerLink="/map" routerLinkActive="active">
+        <span class="icon" aria-hidden="true"><i class="bi bi-map"></i></span>
+        <span class="label">Map</span>
+      </a>
+      <a routerLink="/admin" routerLinkActive="active">
+        <span class="icon" aria-hidden="true"><i class="bi bi-gear"></i></span>
+        <span class="label">Admin</span>
+      </a>
+    </div>
+  </nav>
+</div>

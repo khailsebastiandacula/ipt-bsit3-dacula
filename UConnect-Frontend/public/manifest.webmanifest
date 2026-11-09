@@ -1,0 +1,24 @@
+{
+  "name": "Liceo U Connect",
+  "short_name": "UConnect",
+  "description": "Campus map and announcements progressive web app.",
+  "theme_color": "#bf0015",
+  "background_color": "#f0f1f5",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

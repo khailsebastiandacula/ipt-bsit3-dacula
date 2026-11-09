@@ -1,0 +1,10 @@
+import { Hono } from "hono";
+import { createAnnouncement, deleteAnnouncement, updateAnnouncement, } from "../controllers/admin.controller.js";
+import { requireAdminAuth } from "../middleware/admin-auth.js";
+const adminRoute = new Hono();
+adminRoute.use("*", requireAdminAuth);
+adminRoute.get("/auth", (context) => context.json({ ok: true }, 200));
+adminRoute.post("/announcements", createAnnouncement);
+adminRoute.put("/announcements/:id", updateAnnouncement);
+adminRoute.delete("/announcements/:id", deleteAnnouncement);
+export default adminRoute;

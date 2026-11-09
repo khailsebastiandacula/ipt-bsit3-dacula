@@ -1,0 +1,136 @@
+@import 'leaflet/dist/leaflet.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --bg: #eef2f7;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-elevated: #ffffff;
+  --border: #d9dee8;
+  --border-strong: #c7cfdd;
+  --text: #1f2a3b;
+  --muted: #607086;
+  --brand: #bf0015;
+  --brand-strong: #910011;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --info: #0ea5e9;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 8px 22px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 16px 34px rgba(15, 23, 42, 0.13);
+  --duration-fast: 120ms;
+  --duration-base: 170ms;
+  --space-1: 0.4rem;
+  --space-2: 0.7rem;
+  --space-3: 1rem;
+  --space-4: 1.35rem;
+  --space-5: 1.8rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+  font-family:
+    'Poppins',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  transition: var(--duration-base) ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--brand) 55%, white);
+  outline-offset: 2px;
+}
+
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: color-mix(in oklab, var(--brand) 78%, black);
+  letter-spacing: 0.02em;
+}
+
+.skeleton-line {
+  height: 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #edf1f7 20%, #e4e9f2 35%, #edf1f7 55%);
+  background-size: 240% 100%;
+  animation: skeletonPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes skeletonPulse {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
